@@ -1,5 +1,5 @@
 
-
+"""
 from time import sleep
 import checkconfigFnc
 
@@ -32,15 +32,26 @@ cnfg = confCls()
 cnfg.conflist = configlist
 cnfg.config=[]
 """
+"""
 for i in range(0,len(configlist)):
     cnfg.config[i] = configlist[i];
 
 
 print cnfg.config
 """
-print cnfg.conflist
+from checkconfigClass import *
 
-print checkconfigFnc.checkconfig('vlan-trunk',cnfg.conflist)
+HOST = "192.168.200.240"  # your server
+user = "bty"             # your username
+password = "*****"       # your password
+
+cnfg = Conf(user,HOST,password)
+a=cnfg.conf_list
+print a
+b=cnfg.checkconfig('vlan-trunk')
+print b
+
+#print checkconfigFnc.checkconfig('vlan-trunk',cnfg.conflist)
 
 
 
